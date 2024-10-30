@@ -270,6 +270,10 @@ export function Login() {
           )}
         </button>
       </div>
+      
+      <Link to='/auth/Visiteur' className='link-primary'>
+        <button type='submit'  className='btn btn-primary'>espace visiteur</button>
+        </Link>
       {/* end::Action */}
 
      
