@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Metronic React Demo 1" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"
-    />
-    <title>Metronic Theme | Keenthemes</title>
-    <link rel="shortcut icon" href="%PUBLIC_URL%/media/logos/favicon.ico" />
-    <link rel="stylesheet" id="layout-styles-anchor" href="%PUBLIC_URL%/splash-screen.css" />
-  </head>
 
-  <body id="kt_body" class="page-loading">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <!--begin::Theme mode setup on page load-->
-    <script>
-      let themeMode = 'system'
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Metronic React Demo 1" />
+  <!-- Ajoutez les liens aux polices Google -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <title>Metronic Theme | Keenthemes</title>
+  
+  <!-- Remplacez %PUBLIC_URL% par des chemins relatifs ou ajustez pour la production -->
+  <link rel="shortcut icon" href="/media/logos/favicon.ico" />
+  <link rel="stylesheet" href="/splash-screen.css" id="layout-styles-anchor" />
+</head>
 
-      if (localStorage.getItem('kt_theme_mode_value')) {
-        themeMode = localStorage.getItem('kt_theme_mode_value')
-      }
+<body id="kt_body" class="page-loading">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
 
-      if (themeMode === 'system') {
-        themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-      }
+  <!-- Configuration du mode thème (clair/sombre) -->
+  <script>
+    let themeMode = 'system';
+    if (localStorage.getItem('kt_theme_mode_value')) {
+      themeMode = localStorage.getItem('kt_theme_mode_value');
+    }
 
-      document.documentElement.setAttribute('data-bs-theme', themeMode)
-    </script>
-    <!--end::Theme mode setup on page load-->
+    if (themeMode === 'system') {
+      themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
 
-    <div id="root"></div>
+    document.documentElement.setAttribute('data-bs-theme', themeMode);
+  </script>
 
-    <!--begin::Loading markup-->
-    <div id="splash-screen" class="splash-screen">
-      <img
-        src="%PUBLIC_URL%/media/logos/default-dark.svg"
-        class="dark-logo"
-        alt="Metronic dark logo"
-      />
-      <img
-        src="%PUBLIC_URL%/media/logos/default.svg"
-        class="light-logo"
-        alt="Metronic light logo"
-      />
-      <span>Loading ...</span>
-    </div>
-    <!--end::Loading markup-->
+  <!-- Conteneur principal de l'application -->
+  <div id="root"></div>
 
-    <div id="root-modals"></div>
-  </body>
+  <!-- Markup de l'écran de chargement -->
+  <div id="splash-screen" class="splash-screen">
+    <img src="/media/logos/default-dark.svg" class="dark-logo" alt="Metronic dark logo" />
+    <img src="/media/logos/default.svg" class="light-logo" alt="Metronic light logo" />
+    <span>Loading ...</span>
+  </div>
+
+  <!-- Conteneur pour les modaux -->
+  <div id="root-modals"></div>
+
+  <!-- Chargez le script JavaScript principal (ajustez pour la production) -->
+  <script src="/static/js/main.f80400cf.js" defer></script>
+  <link href="/static/css/main.e266c1ac.css" rel="stylesheet" />
+</body>
+
 </html>
