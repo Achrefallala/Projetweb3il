@@ -3,6 +3,7 @@ import {FC} from 'react'
 import {useIntl} from 'react-intl'
 import {toAbsoluteUrl} from '../../../_metronic/helpers'
 import {PageTitle} from '../../../_metronic/layout/core'
+import ChatBot from 'react-simple-chatbot';
 import {
   ListsWidget2,
   ListsWidget3,
@@ -21,6 +22,7 @@ import {
   ChartsWidget3,
 } from '../../../_metronic/partials/widgets'
 import { useAuth } from '../../modules/auth'
+import ExampleDBPedia from './ExampleDBPedia';
 
 
 
@@ -68,10 +70,38 @@ const DashboardPage: FC = () => {
     
     {/* end::Row */}
 
-   
-  </>
+
+    {/* begin::Row */}
+    <div
+  className="d-flex justify-content-center align-items-center"
+  style={{ height: '100vh', backgroundColor: '#f8f9fa' }} 
+>
+  <div
+    className="d-flex flex-column justify-content-center align-items-center"
+    style={{
+      width: '60%',
+      height: '70%',
+      backgroundColor: '#ffffff', 
+      borderRadius: '10px', 
+     
+      padding: '20px', 
+    }}
+  >
+    <h2 className="text-center mb-4">Chatbot Example</h2>
+    <ExampleDBPedia />
+  </div>
+</div>
+
+    {/* end::Row */}
+
+    
+    </>
   );
-}
+};
+
+
+
+
 
 const DashboardWrapper: FC = () => {
   const intl = useIntl()
@@ -79,6 +109,7 @@ const DashboardWrapper: FC = () => {
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.DASHBOARD'})}</PageTitle>
       <DashboardPage />
+      
     </>
   )
 }
