@@ -128,13 +128,22 @@ const ExampleDBPedia = () => (
     steps={[
       {
         id: '1',
-        message: 'Type something to search on Wikipedia. (e.g., Brazil)',
+        message: 'Type something to search ',
         trigger: 'search',
       },
       {
         id: 'search',
         user: true,
-        trigger: '3',
+        trigger: ({ value }) => {
+          // Détecter les mots-clés liés aux voitures électriques
+          const electricKeywords = ['electric', 'electric car', 'voitures electriques'];
+          return electricKeywords.some(keyword => value.toLowerCase().includes(keyword)) ? 'electric-response' : '3';
+        },
+      },
+      {
+        id: 'electric-response',
+        message: 'Les voitures électriques représentent une avancée majeure dans lindustrie automobile, offrant à la fois des performances remarquables et une solution écologique face aux défis environnementaux actuels. Parmi les modèles les plus réputés, Tesla et Mercedes se distinguent par leur innovation et leur qualité. Tesla, pionnier dans ce domaine, propose des véhicules comme la Model 3 et la Model S, qui allient autonomie exceptionnelle, vitesse impressionnante et technologies avancées, notamment leur système de conduite autonome. De son côté, Mercedes simpose avec sa gamme EQ, combinant luxe, confort et une ingénierie sophistiquée. Ces marques illustrent parfaitement comment les voitures électriques peuvent répondre à des besoins variés, que ce soit pour les amateurs de sportivité, les professionnels cherchant une image haut de gamme ou les consommateurs soucieux de réduire leur empreinte carbone. En optant pour une Tesla ou une Mercedes électrique, on fait le choix d’un véhicule performant, innovant et respectueux de l’environnement.',
+        trigger: '1',
       },
       {
         id: '3',
@@ -148,5 +157,6 @@ const ExampleDBPedia = () => (
     userDelay={500}
   />
 );
+
 
 export default ExampleDBPedia;
