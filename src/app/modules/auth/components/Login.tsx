@@ -98,15 +98,7 @@ export function Login() {
     }
   };
 
- /* localStorage.setItem('token', data.api_token);
-        console.log(data.user);
-        saveAuth(data);
-      
-        setCurrentUser(data.user);
-        alert(Connexion réussie. Bienvenue ${data.user.name} !);
 
-  
-  */
   
 
 
